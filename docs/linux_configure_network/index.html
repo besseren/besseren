@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="查看网络 # 配置网络前需要了解当前设备的网络配置，使用 iproute2 提供的网络管理工具可以帮助我们获取这些信息：
+当然也可以使用 net-tools 提供的工具完成同样的任务，不过该工具是过时的并已经停止维护，iproute2 在提供相同的功能的基础上还有更多的新特性。
+命令 功能 ip addr 查看网卡信息 ip neigh 查看动态 arp 表 ip -s neigh 查看静态 arp 表 ip route 查看路由表 连接网络 # 以太网：网线连接上路由器和电脑后就能直接使用，无需特殊设置。 wifi：需使用 iw 工具连接网络: # 大部分发行版默认安装 iw, 如果没有, 安装 iw sudo apt iw # 查看无线网卡 iw dev # 指定网卡扫描附近的网络 iw dev &lt;dev_name&gt; scan # 连接到一个已扫描出的网络 iw dev &lt;dev_name&gt; connect &lt;net_ssid&gt; DNS 配置 # 如果需要将某个域名映射到某个 ip 地址, 最简单的方式是直接修改 /etc/hosts 文件">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="linux 常用网络配置" />
+<meta property="og:description" content="查看网络 # 配置网络前需要了解当前设备的网络配置，使用 iproute2 提供的网络管理工具可以帮助我们获取这些信息：
+当然也可以使用 net-tools 提供的工具完成同样的任务，不过该工具是过时的并已经停止维护，iproute2 在提供相同的功能的基础上还有更多的新特性。
+命令 功能 ip addr 查看网卡信息 ip neigh 查看动态 arp 表 ip -s neigh 查看静态 arp 表 ip route 查看路由表 连接网络 # 以太网：网线连接上路由器和电脑后就能直接使用，无需特殊设置。 wifi：需使用 iw 工具连接网络: # 大部分发行版默认安装 iw, 如果没有, 安装 iw sudo apt iw # 查看无线网卡 iw dev # 指定网卡扫描附近的网络 iw dev &lt;dev_name&gt; scan # 连接到一个已扫描出的网络 iw dev &lt;dev_name&gt; connect &lt;net_ssid&gt; DNS 配置 # 如果需要将某个域名映射到某个 ip 地址, 最简单的方式是直接修改 /etc/hosts 文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://besseren.github.io/docs/linux_configure_network/" /><meta property="article:section" content="docs" />
+
+
+
+<title>linux 常用网络配置 | besseren&#39;s blog</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/en.search.min.6613e5cb01e07d1d60b794b2ede49807d810eb4ac7dda5d98cae084eca27d14d.js" integrity="sha256-ZhPlywHgfR1gt5Sy7eSYB9gQ60rH3aXZjK4ITson0U0=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>besseren&#39;s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/linux_configure_network/" class="active">linux 常用网络配置</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/readme/" class="">Readme</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>linux 常用网络配置</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#查看网络">查看网络</a></li>
+    <li><a href="#连接网络">连接网络</a></li>
+    <li><a href="#dns-配置">DNS 配置</a></li>
+    <li><a href="#代理配置">代理配置</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h2 id="查看网络">
+  查看网络
+  <a class="anchor" href="#%e6%9f%a5%e7%9c%8b%e7%bd%91%e7%bb%9c">#</a>
+</h2>
+<p>配置网络前需要了解当前设备的网络配置，使用 iproute2 提供的网络管理工具可以帮助我们获取这些信息：</p>
+<blockquote>
+<p>当然也可以使用 net-tools 提供的工具完成同样的任务，不过该工具是<a href="https://www.linkedin.com/pulse/net-tools-vs-iproute2-harshvardhan-kumar-singh-f8uhc">过时的并已经停止维护</a>，iproute2 在提供相同的功能的基础上还有更多的新特性。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ip addr</code></td>
+<td>查看网卡信息</td>
+</tr>
+<tr>
+<td><code>ip neigh</code></td>
+<td>查看动态 arp 表</td>
+</tr>
+<tr>
+<td><code>ip -s neigh</code></td>
+<td>查看静态 arp 表</td>
+</tr>
+<tr>
+<td><code>ip route</code></td>
+<td>查看路由表</td>
+</tr>
+</tbody>
+</table>
+<h2 id="连接网络">
+  连接网络
+  <a class="anchor" href="#%e8%bf%9e%e6%8e%a5%e7%bd%91%e7%bb%9c">#</a>
+</h2>
+<ul>
+<li>以太网：网线连接上路由器和电脑后就能直接使用，无需特殊设置。</li>
+<li>wifi：需使用 <code>iw</code> 工具连接网络:
+<pre tabindex="0"><code># 大部分发行版默认安装 iw, 如果没有, 安装 iw
+sudo apt iw
+# 查看无线网卡
+iw dev
+# 指定网卡扫描附近的网络
+iw dev &lt;dev_name&gt; scan
+# 连接到一个已扫描出的网络
+iw dev &lt;dev_name&gt; connect &lt;net_ssid&gt; 
+</code></pre></li>
+</ul>
+<h2 id="dns-配置">
+  DNS 配置
+  <a class="anchor" href="#dns-%e9%85%8d%e7%bd%ae">#</a>
+</h2>
+<p>如果需要将某个域名映射到某个 ip 地址, 最简单的方式是直接修改 /etc/hosts 文件</p>
+<pre tabindex="0"><code># /etc/hosts
+&lt;ip addr&gt; &lt;hostname&gt; &lt;host_alias&gt;
+</code></pre><p>/etc/resolv.conf 是整个 dns 解析的核心文件，应该是一个规范文件，linux 的有关的解析域名的系统 api 只从这个文件里面获取 dns server. 可以通过修改该文件来配置 dns.
+systemd 是一个在 linux 上流行的服务管理工具，当前大部分 linux 发行版都会安装 systemd, 如果当前系统使用的是 systemd-resolved 管理 dns 则不应该直接修改该文件.</p>
+<pre tabindex="0"><code># 判断当前系统的 dns 是否由 systemd 管理, 如果是,可以修改 /etc/systemd/resolved.conf 来设置 dns
+[ ! -z $(readlink /etc/resolv.conf) ] &amp;&amp; echo &#34;yes&#34; || echo &#34;no&#34;
+</code></pre><pre tabindex="0"><code># /etc/systemd/resolved.
+[Resolve]
+DNS=&lt;x.x.x.x&gt; &lt;y.y.y.y&gt;
+</code></pre><h2 id="代理配置">
+  代理配置
+  <a class="anchor" href="#%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae">#</a>
+</h2>
+<p>在终端环境中,设置当前的代理可以通过设置 <code>http_proxy</code>, <code>https_proxy</code>, <code>all_proxy</code> 环境变量来达成该目的.</p>
+<pre tabindex="0"><code>export http_proxy=http://&lt;proxy_ip&gt;:&lt;proxy_port&gt; https_proxy=http://&lt;proxy_ip&gt;:&lt;proxy_port&gt; all_proxy=socks5://&lt;proxy_ip&gt;:&lt;proxy_port&gt;
+</code></pre><p>如果需要持久化, 可以将该命令复制到 ~/.bashrc 或者 ~/.zshrc 文件中, 这取决你用的什么 shell.</p>
+<h2 id="参考资料">
+  参考资料
+  <a class="anchor" href="#%e5%8f%82%e8%80%83%e8%b5%84%e6%96%99">#</a>
+</h2>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/145131184">linux 连接网络</a></li>
+<li><a href="https://tldp.org/LDP/nag2/index.html">Linux Network Administrators Guide</a></li>
+<li><a href="https://www.linuxfromscratch.org/lfs/view/10.0-systemd/chapter09/network.html">LFS: General Network Configuration</a></li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#查看网络">查看网络</a></li>
+    <li><a href="#连接网络">连接网络</a></li>
+    <li><a href="#dns-配置">DNS 配置</a></li>
+    <li><a href="#代理配置">代理配置</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
