@@ -4,9 +4,17 @@
     <title>besseren&#39;s blog</title>
     <link>https://besseren.github.io/</link>
     <description>Recent content on besseren&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://besseren.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Common Commands</title>
+      <link>https://besseren.github.io/docs/linux_common_commands/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://besseren.github.io/docs/linux_common_commands/</guid>
+      <description></description>
+    </item>
     <item>
       <title>linux 常用网络配置</title>
       <link>https://besseren.github.io/docs/linux_configure_network/</link>
@@ -15,11 +23,25 @@
       <description>查看网络 # 配置网络前需要了解当前设备的网络配置，使用 iproute2 提供的网络管理工具可以帮助我们获取这些信息：&#xA;当然也可以使用 net-tools 提供的工具完成同样的任务，不过该工具是过时的并已经停止维护，iproute2 在提供相同的功能的基础上还有更多的新特性。&#xA;命令 功能 ip addr 查看网卡信息 ip neigh 查看动态 arp 表 ip -s neigh 查看静态 arp 表 ip route 查看路由表 连接网络 # 以太网：网线连接上路由器和电脑后就能直接使用，无需特殊设置。 wifi：需使用 iw 工具连接网络: # 大部分发行版默认安装 iw, 如果没有, 安装 iw sudo apt iw # 查看无线网卡 iw dev # 指定网卡扫描附近的网络 iw dev &amp;lt;dev_name&amp;gt; scan # 连接到一个已扫描出的网络 iw dev &amp;lt;dev_name&amp;gt; connect &amp;lt;net_ssid&amp;gt; DNS 配置 # 如果需要将某个域名映射到某个 ip 地址, 最简单的方式是直接修改 /etc/hosts 文件</description>
     </item>
     <item>
+      <title>Linx From Scratch</title>
+      <link>https://besseren.github.io/docs/linx_from_scratch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://besseren.github.io/docs/linx_from_scratch/</guid>
+      <description> 参考资料 # Linux From Scratch Version 11.3-systemd The Linux Bootdisk HOWTO </description>
+    </item>
+    <item>
       <title>Readme</title>
       <link>https://besseren.github.io/docs/readme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://besseren.github.io/docs/readme/</guid>
       <description>Welcome to here.</description>
+    </item>
+    <item>
+      <title>个人简历</title>
+      <link>https://besseren.github.io/docs/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://besseren.github.io/docs/cv/</guid>
+      <description> 个人信息 # 男，1994 年出生 求职意向：Java 研发工程师 工作经验：0 年（校招可不填） 期望薪资：0k（校招可不填） 教育经历 # 硕士，XXXX大学，计算机科学与技术专业，2016.9~2019.7 学士，XXXX大学，软件工程专业，2012.9~2016.7 绩点：***，年级前 100% 通过了 CET4/6 英语等级考试 工作经历 # XXXX 公司，XXXX 部门，XXXX 工程师，2010.1~2010.9&#xA;负责 XXX&#xA;项目经历 # XXXX 项目&#xA;使用到的技术&#xA;使用一两句话描述项目的主要功能，然后介绍自己在项目中的角色，解决了什么问题，使用什么方式解决，比别人的方法相比有什么优势（尽量用数据来说明）。&#xA;技能清单 # ★★★ Java ★★☆ C++、Python ★★★ MySQL ★★★ Redis ★★☆ Spring ★☆☆ RabbitMQ、ZooKeeper ★★☆ JavaScript </description>
     </item>
   </channel>
 </rss>
