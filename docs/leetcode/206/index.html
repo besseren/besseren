@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content=" 206.链表反转 # 题目描述 # 题解算法 # 代码 # c/c&#43;&#43; rust python ">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
-<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://besseren.github.io/docs/linux_common_commands/">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://besseren.github.io/docs/leetcode/206/">
   <meta property="og:site_name" content="besseren&#39;s blog">
-  <meta property="og:title" content="Linux Common Commands">
+  <meta property="og:title" content="206. 链表反转">
+  <meta property="og:description" content=" 206.链表反转 # 题目描述 # 题解算法 # 代码 # c/c&#43;&#43; rust python ">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-<title>Linux Common Commands | besseren&#39;s blog</title>
+<title>206. 链表反转 | besseren&#39;s blog</title>
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" href="/favicon.png" >
 <link rel="stylesheet" href="/book.min.33a48f5432973b8ff9a82679d9e45d67f2c15d4399bd2829269455cfe390b5e8.css" integrity="sha256-M6SPVDKXO4/5qCZ52eRdZ/LBXUOZvSgpJpRVz&#43;OQteg=" crossorigin="anonymous">
   <script defer src="/flexsearch.min.js"></script>
-  <script defer src="/en.search.min.c59e616da2b5f1f3fec9550d59cfb12ada5a52654e8184ff22ac9c219c6ae9c5.js" integrity="sha256-xZ5hbaK18fP&#43;yVUNWc&#43;xKtpaUmVOgYT/IqycIZxq6cU=" crossorigin="anonymous"></script>
+  <script defer src="/en.search.min.05cee6c7b908c2b351d7a62bdfd5e161d0546251617551f74f77b613876512d8.js" integrity="sha256-Bc7mx7kIwrNR16Yr39XhYdBUYlFhdVH3T3e2E4dlEtg=" crossorigin="anonymous"></script>
 
   
 
@@ -66,15 +67,13 @@ https://github.com/alex-shpak/hugo-book
   <ul>
     
       
-    
-      
         <li>
           
   
   
 
   
-    <a href="/docs/linux_configure_network/" class="">linux 常用网络配置</a>
+    <a href="/docs/network/linux_configure_network/" class="">linux 常用网络配置</a>
   
 
         </li>
@@ -87,21 +86,13 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="/docs/linx_from_scratch/" class="">Linx From Scratch 踩坑记录</a>
+    <a href="/docs/leetcode/" class="">Leetcode</a>
   
 
-        </li>
-      
-    
-      
-        <li>
           
-  
-  
-
-  
-    <a href="/docs/readme/" class="">Readme</a>
-  
+  <ul>
+    
+  </ul>
 
         </li>
       
@@ -116,6 +107,18 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/posts/"  >
+        Blog
+      </a>
+  </li>
+  
+</ul>
 
 
 
@@ -142,7 +145,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Linux Common Commands</strong>
+  <strong>206. 链表反转</strong>
 
   <label for="toc-control">
     
@@ -156,7 +159,13 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#题目描述">题目描述</a></li>
+    <li><a href="#题解算法">题解算法</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav>
 
 
 
@@ -167,7 +176,35 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown book-article"></article>
+  <article class="markdown book-article"><h1 id="206链表反转httpsleetcodecnproblemsreverse-linked-list">
+  <a href="https://leetcode.cn/problems/reverse-linked-list/">206.链表反转</a>
+  <a class="anchor" href="#206%e9%93%be%e8%a1%a8%e5%8f%8d%e8%bd%achttpsleetcodecnproblemsreverse-linked-list">#</a>
+</h1>
+<h2 id="题目描述">
+  题目描述
+  <a class="anchor" href="#%e9%a2%98%e7%9b%ae%e6%8f%8f%e8%bf%b0">#</a>
+</h2>
+<h2 id="题解算法">
+  题解算法
+  <a class="anchor" href="#%e9%a2%98%e8%a7%a3%e7%ae%97%e6%b3%95">#</a>
+</h2>
+<h2 id="代码">
+  代码
+  <a class="anchor" href="#%e4%bb%a3%e7%a0%81">#</a>
+</h2>
+
+
+
+
+<div class="book-tabs"><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-0" checked="checked" />
+  <label for="tabs-uniqueid-0">c/c&#43;&#43;</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"></code></pre></div></div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-1"  />
+  <label for="tabs-uniqueid-1">rust</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"></code></pre></div></div><input type="radio" class="toggle" name="tabs-uniqueid" id="tabs-uniqueid-2"  />
+  <label for="tabs-uniqueid-2">python</label>
+  <div class="book-tabs-content markdown-inner"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div></div></div>
+
+</article>
  
       
 
@@ -192,6 +229,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -202,7 +243,13 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#题目描述">题目描述</a></li>
+    <li><a href="#题解算法">题解算法</a></li>
+    <li><a href="#代码">代码</a></li>
+  </ul>
+</nav>
 
 
  

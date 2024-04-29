@@ -2,25 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://besseren.github.io/docs/linux_common_commands/</loc>
+    <loc>https://besseren.github.io/docs/network/linux_configure_network/</loc>
   </url><url>
-    <loc>https://besseren.github.io/docs/linux_configure_network/</loc>
+    <loc>https://besseren.github.io/docs/misc/linx_from_scratch/</loc>
   </url><url>
-    <loc>https://besseren.github.io/docs/linx_from_scratch/</loc>
+    <loc>https://besseren.github.io/docs/leetcode/</loc>
   </url><url>
-    <loc>https://besseren.github.io/docs/readme/</loc>
-  </url><url>
-    <loc>https://besseren.github.io/docs/cv/</loc>
+    <loc>https://besseren.github.io/docs/leetcode/206/</loc>
   </url><url>
     <loc>https://besseren.github.io/</loc>
-    <lastmod>2024-01-27T11:30:29+08:00</lastmod>
   </url><url>
     <loc>https://besseren.github.io/posts/</loc>
-    <lastmod>2024-01-27T11:30:29+08:00</lastmod>
   </url><url>
     <loc>https://besseren.github.io/categories/</loc>
   </url><url>
     <loc>https://besseren.github.io/docs/</loc>
+  </url><url>
+    <loc>https://besseren.github.io/docs/leetcode/template/</loc>
   </url><url>
     <loc>https://besseren.github.io/tags/</loc>
   </url>
